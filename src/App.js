@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import RecoilLogger from 'recoil-logger'
-import { RecoilRoot } from 'recoil';
 
 //Importing Pages
 import SignUp from './pages/SignUp';
@@ -13,12 +11,12 @@ import NavigationBar from './components/NavigationBar';
 
 import PrivateRoute from './components/PrivateRoute'
 
+
 const App = () => {
 
   return (
     <div className="App">
-      <RecoilRoot>
-        <RecoilLogger />
+      
         <Router>
           <NavigationBar />
           <Switch>
@@ -29,7 +27,6 @@ const App = () => {
             <Route path="/login" exact component={Login} />
           </Switch>
         </Router>
-      </RecoilRoot>
     </div>
   )
 }

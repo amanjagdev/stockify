@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useRecoilState } from 'recoil';
+import Axios from 'axios'
 
 import { userAtom } from '../global/gloablState';
 
@@ -9,11 +10,21 @@ const Login = ({history}) => {
     const [user, setUser] = useRecoilState(userAtom)
     const [password, setPassword] = useState("")
 
+    useEffect(() => {
+        if(user){
+            // history.goBack;
+        }
+    }, [])
+
     const handleLogin = () => {
-        setUser({
-            email
-        });
-        history.push('/dashboard')
+        Axios.post(`${process.env.REACT_APP_API_URL}/api/signin`,{email,password})
+        .then(res => {
+            console.log(res.data);
+            localStorage.setItem('user', JSON.stringify(res.data))
+            setUser(res.data);
+            history.push('/dashboard')
+        })
+        .catch(err => console.log(err));
     }
 
     return (

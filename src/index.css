@@ -11,10 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+button {
+  padding: 10px 20px;
+  border: none;
+  font-weight: 600;
+  color: #5443C3;
+  outline: none;
+  border-radius: 40px;
+  background: #fff;
+}
+
 nav {
   text-align: center;
   padding: 20px 0;
-  background: #777;
+  background: #5443C3;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr;
@@ -26,6 +36,10 @@ nav {
       justify-content: space-around;
 }
 
+nav img {
+  height: 40px;
+}
+
 nav .nav-links {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -35,6 +49,67 @@ nav .nav-links {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+nav .nav-links .nav-link {
+  color: #fff;
+}
+
+nav .nav-links .active-link {
+  border-bottom: 3px solid white;
+}
+
+.SignUp {
+  height: 90vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.SignUp .left-bar {
+  padding: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #5443C3;
+}
+
+.SignUp .left-bar .logo {
+  width: 300px;
+}
+
+.SignUp .left-bar .art {
+  width: 400px;
+}
+
+.SignUp .main-signup {
+  padding: 5%;
+}
+
+.SignUp .main-signup .signup-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.SignUp .main-signup .signup-form input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .Login .login-form {
