@@ -11,6 +11,7 @@
 # production
 /build
 *.scss
+.env
 
 # misc
 .DS_Store
