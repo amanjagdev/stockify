@@ -22,7 +22,6 @@ const Profile = () => {
             })
             .then(res => {
                 setErrors(null)
-                console.log(res);
                 localStorage.setItem('user', JSON.stringify(res.data))
                 setUser({
                     token : user.token,
@@ -30,7 +29,6 @@ const Profile = () => {
                 });
             })
             .catch(err => {
-                console.log(err.response.data)
                 if (Array.isArray(err.response.data.errors)) {
                     setErrors(err.response.data.errors);
                 } else {

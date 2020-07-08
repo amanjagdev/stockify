@@ -115,7 +115,6 @@ const Dashboard = () => {
                     token: user.token,
                     user: res.data
                 });
-                console.log(res.data)
             })
             .catch(err => console.log(err))
         setCurrentlyEditing(null)

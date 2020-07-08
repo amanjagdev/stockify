@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require('path')
 const mongoose = require("mongoose");
 require("dotenv").config();
 const bodyParser = require("body-parser");
@@ -31,7 +32,14 @@ mongoose.connect(
 app.use("/api", require("./Routes/user"));
 app.use("/stocks", require("./Routes/stocks"));
 
+//Serving react
+app.use(express.static(path.join(__dirname,'client', 'build')))
+app.get('*',(req,res) => {
+  res.sendFile(path.join(__dirname,'client', 'build', 'index.html'))
+})
+
 // LISTENING TO PORT
 app.listen(port, (req, res) => {
   console.log(`Server has started at port ${port}`);
 });
+

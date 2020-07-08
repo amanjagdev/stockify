@@ -20,7 +20,6 @@ const SignUp = ({ history }) => {
                 history.push('/login')
             })
             .catch(err => {
-                console.log(err.response.data)
                 if (Array.isArray(err.response.data.errors)) {
                     setErrors(err.response.data.errors);
                 } else {
