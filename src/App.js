@@ -7,7 +7,9 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+
 import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 
 import PrivateRoute from './components/PrivateRoute'
 
@@ -26,6 +28,7 @@ const App = () => {
             <Route path="/signup" exact component={SignUp} />
             <Route path="/login" exact component={Login} />
           </Switch>
+          <Footer />
         </Router>
     </div>
   )
