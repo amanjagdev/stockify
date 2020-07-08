@@ -14,9 +14,16 @@ const Dashboard = () => {
     const [currentlyEditing, setCurrentlyEditing] = useState(null)
     const [errors, setErrors] = useState(null)
 
-    const [newStockName, setNewStockName] = useState(null)
-    const [newStockQty, setNewStockQty] = useState(null)
-    const [newStockPrice, setNewStockPrice] = useState(null)
+    const [newStockName, setNewStockName] = useState("")
+    const [newStockQty, setNewStockQty] = useState("")
+    const [newStockPrice, setNewStockPrice] = useState("")
+
+    // useEffect(() => {
+    //     Axios.get()
+    //     return () => {
+    //         cleanup
+    //     }
+    // }, [input])
 
     const handleAdd = () => {
         if (stockName === "" || stockQty === 0 || stockPrice === 0) {
@@ -56,7 +63,7 @@ const Dashboard = () => {
     }
 
     const removeItem = (_id) => {
-        Axios.post(`${process.env.REACT_APP_API_URL}/stocks/delete`, { _id },
+        Axios.post(`${process.env.REACT_APP_API_URL}/stocks/delete`, { user: user.user, _id },
             {
                 headers: {
                     Authorization: 'Bearer ' + user.token
@@ -64,15 +71,14 @@ const Dashboard = () => {
             }
         )
             .then(res => {
-                // localStorage.setItem('user', JSON.stringify({
-                //     token: user.token,
-                //     user: res.data
-                // }))
-                // setUser({
-                //     token: user.token,
-                //     user: res.data
-                // });
-                console.log(res.data)
+                localStorage.setItem('user', JSON.stringify({
+                    token: user.token,
+                    user: res.data
+                }))
+                setUser({
+                    token: user.token,
+                    user: res.data
+                });
             })
             .catch(err => console.log(err))
     }
@@ -86,9 +92,32 @@ const Dashboard = () => {
     }
 
     const saveNewItem = (_id) => {
-        console.log({
-            _id,newStockName,newStockPrice,newStockQty
-        });
+        Axios.post(`${process.env.REACT_APP_API_URL}/stocks/update`,
+            {
+                user: user.user,
+                _id,
+                name: newStockName,
+                quantity: newStockQty,
+                price: newStockPrice,
+            },
+            {
+                headers: {
+                    Authorization: 'Bearer ' + user.token
+                }
+            }
+        )
+            .then(res => {
+                localStorage.setItem('user', JSON.stringify({
+                    token: user.token,
+                    user: res.data
+                }))
+                setUser({
+                    token: user.token,
+                    user: res.data
+                });
+                console.log(res.data)
+            })
+            .catch(err => console.log(err))
         setCurrentlyEditing(null)
     }
 
@@ -111,28 +140,33 @@ const Dashboard = () => {
                 </thead>
                 <tbody>
                     {
-                        user.user.stockData
+                        user.user.stockData.length !== 0
                             ?
-                            user.user.stockData.map(({ _id, name, quantity, price }) =>
+                            user.user.stockData.map(({ _id, name, quantity, price }) => {
+                                if (!name) {
+                                    return null;
+                                } else {
 
-                                _id &&
-                                <React.Fragment  key={_id}>
-                                    <tr>
-                                        <td>{name}</td>
-                                        <td>{quantity}</td>
-                                        <td>{price}</td>
-                                        <td>{quantity * price}</td>
-                                        <td><button onClick={() => editItem(_id)}><img src={require("../assets/edit_icon.png")} alt="Edit" /></button></td>
-                                        <td><button onClick={() => removeItem(_id)}><img src={require("../assets/delete_icon.png")} alt="delete" /></button></td>
-                                    </tr>
-                                    <tr className={currentlyEditing === _id ? "yes" : "no"}>
-                                        <td><input type="text" className="name-box"  value={newStockName} onChange={(e) => setNewStockName(e.target.value)} /></td>
-                                        <td><input type="number" className="qty-box" value={newStockQty} onChange={(e) => setNewStockQty(e.target.value)} /></td>
-                                        <td><input type="number" className="price-box" value={newStockPrice} onChange={(e) => setNewStockPrice(e.target.value)} /></td>
-                                        <td><button className="rev save" onClick={() => saveNewItem(_id)}>Save</button></td>
-                                    </tr>
-                                </React.Fragment>
-                            )
+                                    return (
+                                        <React.Fragment key={_id}>
+                                            <tr>
+                                                <td>{name}</td>
+                                                <td>{quantity}</td>
+                                                <td>{price}</td>
+                                                <td>{quantity * price}</td>
+                                                <td><button onClick={() => editItem(_id)}><img src={require("../assets/edit_icon.png")} alt="Edit" /></button></td>
+                                                <td><button onClick={() => removeItem(_id)}><img src={require("../assets/delete_icon.png")} alt="delete" /></button></td>
+                                            </tr>
+                                            <tr className={currentlyEditing === _id ? "yes" : "no"}>
+                                                <td><input type="text" className="name-box" value={newStockName} onChange={(e) => setNewStockName(e.target.value)} /></td>
+                                                <td><input type="number" className="qty-box" value={newStockQty} onChange={(e) => setNewStockQty(e.target.value)} /></td>
+                                                <td><input type="number" className="price-box" value={newStockPrice} onChange={(e) => setNewStockPrice(e.target.value)} /></td>
+                                                <td><button className="rev save" onClick={() => saveNewItem(_id)}>Save</button></td>
+                                            </tr>
+                                        </React.Fragment>
+                                    )
+                                }
+                            })
                             : <tr><td>Stocks are empty</td></tr>
                     }
                 </tbody>

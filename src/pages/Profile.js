@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { userAtom } from '../global/gloablState'
+import Axios from 'axios'
 
 const Profile = () => {
     const [user, setUser] = useRecoilState(userAtom)
@@ -9,10 +10,34 @@ const Profile = () => {
     const [email, setEmail] = useState(user.user.email)
     const [currentPassword, setCurrentPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
+    const [errors, setErrors] = useState(null)
 
     const handleSaveUser = () => {
-        console.log("User Updated")
-    }    
+        Axios.post(`${process.env.REACT_APP_API_URL}/api/update`,
+            { name, email, password: newPassword, currentPassword },
+            {
+                headers: {
+                    Authorization: 'Bearer ' + user.token
+                }
+            })
+            .then(res => {
+                setErrors(null)
+                console.log(res);
+                localStorage.setItem('user', JSON.stringify(res.data))
+                setUser({
+                    token : user.token,
+                    user: res.data
+                });
+            })
+            .catch(err => {
+                console.log(err.response.data)
+                if (Array.isArray(err.response.data.errors)) {
+                    setErrors(err.response.data.errors);
+                } else {
+                    setErrors([{ msg: err.response.data.error }]);
+                }
+            });
+    }
 
     return (
         <div className="Profile">
@@ -44,6 +69,9 @@ const Profile = () => {
                     <label htmlFor="email">New Password</label>
                     <input type="text" id="email" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
                     <button className="save rev" onClick={() => handleSaveUser()}>Save</button>
+                    {
+                        errors && errors.map(({ msg }, index) => <div key={index} className="error">{msg}</div>)
+                    }
                 </div>
             </div>
         </div>
