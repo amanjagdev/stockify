@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cd client && yarn build",
     "start": "node server.js",
+    "local-build": "cd client && yarn build",
     "dev": "nodemon server.js"
   },
   "author": "",
