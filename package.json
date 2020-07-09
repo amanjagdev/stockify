@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "local-build": "cd client && yarn build",
+    "deploy-app": "npm run local-build && git commit -m 'Updated Build' && git push",
     "dev": "nodemon server.js"
   },
   "author": "",
