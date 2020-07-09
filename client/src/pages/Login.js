@@ -14,10 +14,13 @@ const Login = ({ history }) => {
     const handleLogin = () => {
         Axios.post(`${process.env.REACT_APP_API_URL}/api/signin`, { email, password })
             .then(res => {
-                console.log(res);
-                localStorage.setItem('user', JSON.stringify(res.data))
-                setUser(res.data);
-                history.push('/dashboard')
+                if(res.data.error){
+                    setErrors([{msg: res.data.error}]);
+                }else{
+                    localStorage.setItem('user', JSON.stringify(res.data))
+                    setUser(res.data);
+                    history.push('/dashboard')
+                }
             })
             .catch(err => {
                 if (Array.isArray(err.response.data.errors)) {
