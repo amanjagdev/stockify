@@ -16,7 +16,7 @@ const SignUp = ({ history }) => {
         Axios.post(`${process.env.REACT_APP_API_URL}/api/signup`,
             { email, password, name: fullname })
             .then(res => {
-                setUser(res.data);
+                // setUser(res.data);
                 history.push('/login')
             })
             .catch(err => {
