@@ -192,6 +192,15 @@ input {
   font-size: 3rem;
 }
 
+.Dashboard .display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .Dashboard table {
   overflow-x: auto;
   margin: 30px 0;

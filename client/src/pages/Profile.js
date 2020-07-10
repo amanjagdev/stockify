@@ -6,6 +6,8 @@ import Axios from 'axios'
 const Profile = () => {
     const [user, setUser] = useRecoilState(userAtom)
 
+    const [whno, setWhno] = useState(user.user.warehouseNo)
+
     const [name, setName] = useState(user.user.name)
     const [email, setEmail] = useState(user.user.email)
     const [currentPassword, setCurrentPassword] = useState("")
@@ -37,6 +39,31 @@ const Profile = () => {
             });
     }
 
+    const updateWareHouse = () => {
+        Axios.post(`${process.env.REACT_APP_API_URL}/stocks/updatewarehouse`,
+            {
+                user: user.user,
+                warehouseNo: whno,
+            },
+            {
+                headers: {
+                    Authorization: 'Bearer ' + user.token
+                }
+            }
+        )
+            .then(res => {
+                localStorage.setItem('user', JSON.stringify({
+                    token: user.token,
+                    user: res.data
+                }))
+                setUser({
+                    token: user.token,
+                    user: res.data
+                });
+            })
+            .catch(err => console.log(err))
+    }
+
     return (
         <div className="Profile">
             <h1>Profile</h1>
@@ -54,6 +81,17 @@ const Profile = () => {
                             <h5 >{user.user.email}</h5>
                         </div>
                     }
+                    {
+                        user.user.warehouseNo &&
+                        <div className="warehouse">
+
+                            <h3>Warehouse capacity</h3>
+                            {user.user.warehouseNo}
+                            <h3>Edit capacity</h3>
+                            <input type="text" value={whno} onChange={(e) => setWhno(e.target.value)}/>
+                            <button className="rev" onClick={() => updateWareHouse()}>Update</button>
+                        </div> 
+                    }
                     <div className="spacer"></div>
                 </div>
                 <div className="edit-details">
@@ -63,9 +101,9 @@ const Profile = () => {
                     <label htmlFor="email">Email</label>
                     <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     <label htmlFor="currentPassword">Current Password</label>
-                    <input type="text" id="email" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
-                    <label htmlFor="email">New Password</label>
-                    <input type="text" id="email" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                    <input type="password" id="currentPassword" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
+                    <label htmlFor="newPassword">New Password</label>
+                    <input type="password" id="newPassword" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
                     <button className="save rev" onClick={() => handleSaveUser()}>Save</button>
                     {
                         errors && errors.map(({ msg }, index) => <div key={index} className="error">{msg}</div>)
