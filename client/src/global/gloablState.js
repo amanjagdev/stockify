@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 
 export const userAtom = atom({
     key: "userArom",
@@ -7,3 +7,17 @@ export const userAtom = atom({
         type: 'log'
     }
 })
+
+export const totalQuantitySelector = selector({
+    key: 'totalQuantitySelector',
+    get: ({ get }) => {
+        const myData = get(userAtom);
+        let sum = 0;
+        myData.user.stockData.forEach(({ quantity }) => {
+            if (typeof quantity === "number") {
+                sum += quantity;
+            }
+        })
+        return sum;
+    },
+}); 

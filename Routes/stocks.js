@@ -3,6 +3,41 @@ const router = express.Router();
 const User = require("../Models/User");
 const requireLogin = require("../Authentication/requireLogin");
 
+//Adding warehouse qauntity
+router.post("/addwarehouse",requireLogin,(req,res) => {
+
+    User.findById(req.user._id)
+    .then((user) => {
+        user.warehouseNo = req.body.warehouseNo;
+        
+        user.save()
+        .then((user) => {
+            res.status(200).json(user)
+        }).catch((err) => {
+            res.json(err);
+        })
+    }).catch((err) => {
+        res.json(err);
+    })
+})
+
+//Update Warehouse quantity 
+router.post("/updatewarehouse",requireLogin,(req,res) => {
+
+    User.findById(req.user._id)
+    .then((user) => {
+        user.warehouseNo = req.body.warehouseNo;
+        
+        user.save()
+        .then((user) => {
+            res.status(200).json(user)
+        }).catch((err) => {
+            res.json(err);
+        })
+    }).catch((err) => {
+        res.json(err);
+    })
+})
 
 //Pushing the stockData to the users srray
 // Post /stocks/update
@@ -27,13 +62,14 @@ router.post("/create",requireLogin,(req,res) => {
 // @Protected
 
 router.post("/update",requireLogin,(req,res) => {
-    const {_id,name,quantity,price} = req.body;
+    const {_id,name,quantity,price,stockOwner} = req.body;
 
     const stockData = {
         _id,
         name,
         quantity,
-        price
+        price,
+        stockOwner
     }
 
     User.findById(req.user._id)

@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
-import { useRecoilState } from 'recoil';
 import Axios from 'axios';
-
-import { userAtom } from '../global/gloablState';
 
 const SignUp = ({ history }) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [fullname, setFullName] = useState("")
-    const [user, setUser] = useRecoilState(userAtom)
     const [errors, setErrors] = useState(null)
 
     const handleSignUp = () => {
         Axios.post(`${process.env.REACT_APP_API_URL}/api/signup`,
             { email, password, name: fullname })
             .then(res => {
-                // setUser(res.data);
                 history.push('/login')
             })
             .catch(err => {

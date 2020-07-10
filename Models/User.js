@@ -11,6 +11,9 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
+  warehouseNo : {
+    type : Number
+  },
   stockData : [
     {
       name : {
@@ -21,6 +24,9 @@ const userSchema = new mongoose.Schema({
       },
       price : {
         type : Number
+      },
+      stockOwner : {
+        type : String
       }
     }
   ]
