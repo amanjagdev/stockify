@@ -9,7 +9,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+ monospace;
 }
 
 .no {
@@ -416,5 +417,16 @@ input {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
+}
+
+
+/* Git buttons */
+.git-btns{
+  position: fixed;
+  right: 0;
+  top: 50vh;
+}
+.git-btns span{
+  display: block;
 }
 /*# sourceMappingURL=index.css.map */
