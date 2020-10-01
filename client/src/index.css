@@ -9,7 +9,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+ monospace;
 }
 
 .no {
@@ -26,6 +27,7 @@ button {
   border-radius: 40px;
   background: #fff;
 }
+
 
 .rev {
   padding: 10px 20px;
@@ -362,8 +364,12 @@ input {
 }
 
 .Footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background: #5443c3;
-  padding: 30px;
+  padding: 0px;
   color: #fff;
   text-align: center;
 }
