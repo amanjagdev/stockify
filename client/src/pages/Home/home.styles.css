@@ -1,0 +1,73 @@
+.Home .header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Home .header .left {
+  padding: 20%;
+}
+
+.Home .header .left h1 {
+  margin-bottom: 20px;
+}
+
+.Home .header .left p {
+  margin-bottom: 30px;
+}
+
+.Home .header .right {
+  margin: 0 auto;
+}
+
+.Home .header .right img {
+  height: 500px;
+}
+
+.Home .main-body {
+  text-align: center;
+}
+
+.Home .main-body .items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.Home .main-body .items .item {
+  background: #946dff;
+  border-radius: 30px;
+  width: 300px;
+}
+
+.Home .main-body .items .item img {
+  border-radius: 30px 30px 0 0;
+}
+
+.Home .main-body .items .item p {
+  padding: 30px;
+}
+
+.Home .main-body .features h1 {
+  margin: 40px 0;
+}
+
+.Home .main-body .about-us {
+  margin-bottom: 40px;
+}
+
+.Home .main-body .about-us h1 {
+  padding: 40px 0;
+}
+
+.Home .main-body .about-us .desc {
+  margin-bottom: 40px;
+}

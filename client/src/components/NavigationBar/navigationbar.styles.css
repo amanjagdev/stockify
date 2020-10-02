@@ -1,0 +1,37 @@
+nav {
+  text-align: center;
+  padding: 20px 0;
+  background: #5443c3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+nav img {
+  height: 40px;
+}
+
+nav .nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+nav .nav-links .nav-link {
+  color: #fff;
+}
+
+nav .nav-links .active-link {
+  border-bottom: 3px solid white;
+}

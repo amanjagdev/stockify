@@ -1,0 +1,56 @@
+.Dashboard {
+  margin: 3% 10%;
+}
+
+.Dashboard h3 {
+  font-weight: 600;
+}
+
+.Dashboard h1 {
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.Dashboard .display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.Dashboard table {
+  overflow-x: auto;
+  margin: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.Dashboard table thead tr {
+  color: #5443c3;
+}
+
+.Dashboard table thead th {
+  margin: 0 auto;
+}
+
+.Dashboard table tbody .qty-box,
+.Dashboard table tbody .price-box {
+  width: 50px;
+}
+
+.Dashboard table tbody .name-box {
+  width: 90px;
+}
+
+.Dashboard .add-form {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}

@@ -1,0 +1,51 @@
+.Profile {
+  margin: 3% 10%;
+}
+
+.Profile h3 {
+  font-weight: 600;
+}
+
+.Profile h1 {
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.Profile .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Profile .container .static {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.Profile .container .edit-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.Profile .container .edit-details label {
+  font-weight: 600;
+  padding-left: 15px;
+}
+
+.Profile .container .edit-details .save {
+  max-width: 30%;
+  margin-top: 10px;
+}
