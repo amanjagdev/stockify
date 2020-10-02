@@ -37,6 +37,12 @@ button {
   color: #fff;
 }
 
+.rev:hover {
+  background: #322872;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+
 .error {
   background: #ff41417c;
   border: 1px solid #ff00007c;
@@ -182,6 +188,32 @@ input {
 .Login .main-login .login-form label {
   font-weight: 600;
   padding-left: 15px;
+}
+
+.input-icons {
+  width: 100%;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 25px;
+  position: absolute;
+  top: 50%;
+  color: #5443c3;
+  transform: translateY(-50%);
+  right: -10px;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  letter-spacing: 1px;
 }
 
 .Dashboard {
