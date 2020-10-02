@@ -93,6 +93,7 @@ exports.updateUser = (req,res) => {
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
+//   user find by id
  User.findById(req.user._id)
  .then((user) => {
 
