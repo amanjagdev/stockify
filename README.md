@@ -90,8 +90,8 @@ Now commit those changes using the git commit command:
 **5. Push your changes to Github:**
 Push your changes using the command git push:
 
-<pre>git push origin <add-your-branch-name></pre>
-replacing <add-your-branch-name> with the name of the branch you created earlier.
+<pre>git push origin add-your-branch-name</pre>
+replacing "add-your-branch-name" with the name of the branch you created earlier.
 
 **6. Submit changes for review:**
 If you go to your repository on GitHub, you'll see a Compare & pull request button. Click on that button and submit the Pull request. Comment about your pull request.
