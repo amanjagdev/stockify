@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
 
 import RecoilLogger from 'recoil-logger'
 import { RecoilRoot } from 'recoil'
@@ -13,5 +13,5 @@ ReactDOM.render(
       <App />
     </RecoilRoot>
   </React.StrictMode>,
-  document.getElementById('root')
-);
+  document.getElementById('root'),
+)

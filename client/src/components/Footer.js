@@ -1,5 +1,5 @@
-import React from "react";
-import GitHubButton from "react-github-btn";
+import React from 'react'
+import GitHubButton from 'react-github-btn'
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
         data-size="large"
         aria-label="Star ntkme/github-buttons on GitHub"
       >
-        Star{" "}
+        Star{' '}
       </GitHubButton>
       <br />
       <GitHubButton
@@ -18,10 +18,10 @@ const Footer = () => {
         data-size="large"
         aria-label="Fork ntkme/github-buttons on GitHub"
       >
-        Fork{" "}
+        Fork{' '}
       </GitHubButton>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
