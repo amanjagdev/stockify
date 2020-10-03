@@ -24,6 +24,7 @@ const Home = ({ history }) => {
                     registry, with complete security. The Stockify gives you a platform
             where you can interact and manage your stocks.</p>
                     <button onClick={() => handleCTA()} className="cta rev">{user ? "Go to dashboard" : "Get Started"}</button>
+                    <a class="cta rev" href="https://github.com/amanjagdev/stockify/fork" data-icon="octicon-repo-forked" aria-label="Fork amanjagdev/stockify on GitHub">Fork</a>
                 </div>
 
                 <div className="right">
