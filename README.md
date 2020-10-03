@@ -77,14 +77,30 @@ After you clone the repository to a local directory, change directory to the pro
 
 <pre>yarn install</pre>
 
-## 5. Install MongoDB.
+## 5. Generate MongoDb Connection URI
+Sign in here https://www.mongodb.com/cloud to generate your connection string.
+
+Get your connection string from MongoDB Atlas by following these steps:
+1. In the Clusters view, click the Connect button for the cluster to which you want to connect.
+2. Choose Connect your application from the dialog box.
+3. Choose your driver as Nodejs and driver version as 3.6 or later.
+4. Copy the generated connection string. This is what you’ll need further.
+5. Replace the <password> by your own password.
+5. Don't forget to whitelist your IP address.
+
+You can always refer to the docs for help: https://docs.atlas.mongodb.com/connect-to-cluster/
+
+6. Now, make a new file ".env" in the project folder and then define the database URI you generated earlier, like this:
+
+<pre>DATABASE = "Your generated mongoDB URI"</pre>
+
 
 ## 6. Start the Express server and React development server.
 After performing all of the setup steps in the Getting started section, navigate to the project root directory and run the following command to start the Express server and React development server.
 
 <pre>yarn start</pre>
 
-After the development server has started, a Chrome browser window should open, and you should see the login screen for the application. If the browser does not automatically open after the server starts, you can verify that the application is working locally on your computer by opening Chrome and going to <a href="http://localhost:3000">http://localhost:3000</a>.
+After the development server has started, a Chrome browser window should open, and you should see the login screen for the application. If the browser does not automatically open after the server starts, you can verify that the application is working locally on your computer by opening Chrome and going to <a href="http://localhost:8000">http://localhost:8000</a>.
 
 ## Contributing guide
 
