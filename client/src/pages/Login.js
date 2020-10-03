@@ -12,27 +12,46 @@ const Login = ({ history }) => {
     const [errors, setErrors] = useState(null)
 
     const handleLogin = () => {
+        const loader = document.querySelectorAll('.lets_load');
+        loader.forEach((ele)=>{
+            ele.style.display ='flex';
+        });
         Axios.post(`${process.env.REACT_APP_API_URL}/api/signin`, { email, password })
             .then(res => {
+                console.log('hello');
                 if(res.data.error){
                     setErrors([{msg: res.data.error}]);
                 }else{
                     localStorage.setItem('user', JSON.stringify(res.data))
                     setUser(res.data);
-                    history.push('/dashboard')
+                    history.push('/dashboard');
+                    loader.forEach((ele)=>{
+                        ele.style.display ='flex';
+                    });
                 }
             })
             .catch(err => {
+                console.log('hello');
                 if (Array.isArray(err.response.data.errors)) {
                     setErrors(err.response.data.errors);
                 } else {
                     setErrors([{msg: err.response.data.error}]);
                 }
             });
+            // loader hidder
+            loader.forEach((ele)=>{
+                ele.style.display ='none';
+            });
     }
 
     return (
         <div className="Login">
+            <div className="loader_container lets_load" id='loader'>
+                <div className="fadded"></div>
+                <div className="loader_box lets_load" >
+                    <div className="loader1"></div>
+                </div>
+            </div>
             <div className="left-bar">
                 <img src={require("../assets/logo.png")} alt="logo" className="logo" />
                 <img className="art" src={require("../assets/art.png")} alt="" />
