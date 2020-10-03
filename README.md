@@ -10,6 +10,9 @@
 This was a project intended to make the life of Warehouse owners easy by providing them with a Dashboard with clean UI and simple interface where Warehouse owner can keep a track of all their current stocks present in the Warehouse and soon the option for normal user to find near vacant Warehouses to store stuff.
 We intend to include features like Graphical representation of stocks present and activity charts based on previous activities of stock addition and removal. As this a Web Based Application so warehouse owners can have all their data synced across their devices.
 
+### See Live 
+[Stockify](https://hackathon-an.herokuapp.com/)
+
 ### Technologies Used
 
 **Made on MERN Stack**
@@ -20,8 +23,37 @@ We intend to include features like Graphical representation of stocks present an
 
 This app is deployed to Heroku.
 
+---
 
-### Getting Started- Local installation guide:
+## Glimpse of UI
+
+**Stock Management**
+
+![live](https://devfolio-prod.s3.ap-south-1.amazonaws.com/projects/826f8093522b4fad99f9a9b56bbf7ee9/pic4dj6iwhce.png)
+
+**Home Page**
+
+![WelcomePage](https://devfolio-prod.s3.ap-south-1.amazonaws.com/projects/826f8093522b4fad99f9a9b56bbf7ee9/pica0xql6nah.jpeg)
+
+**Login Page**
+
+![Login Page](https://devfolio-prod.s3.ap-south-1.amazonaws.com/projects/826f8093522b4fad99f9a9b56bbf7ee9/picwdj08fdpw.jpeg)
+
+**Your Warehouse**
+
+![Warehouse](https://devfolio-prod.s3.ap-south-1.amazonaws.com/projects/826f8093522b4fad99f9a9b56bbf7ee9/pic587hm1pry.jpeg)
+
+**User Profile**
+
+![Profile](https://devfolio-prod.s3.ap-south-1.amazonaws.com/projects/826f8093522b4fad99f9a9b56bbf7ee9/picw4dsjref1.jpeg)
+
+### Watch our video to understand better
+<https://youtu.be/02PT4QOo84w>
+
+---
+
+## Getting Started
+**Local installation guide:**
 
 The following section will take you through the steps of setting up this app and getting it running locally on your computer.
 ## 1. Clone the repository
@@ -103,9 +135,8 @@ Soon I'll be merging all your changes into the master branch of this project.
 ### Issues:
 If you find an issue while using the app or have a request, log the issue. These issues will be addressed in a future code update.
 
-**See Live** : [Stockify](https://hackathon-an.herokuapp.com/)
 
-### Contributors
+## Contributors
 [Aman Jagdev](https://github.com/amanjagdev)
 [Kartik Goel](https://github.com/kg-kartik)
 [Gautam Arora](https://github.com/Gautam-Arora24)
